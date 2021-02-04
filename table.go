@@ -28,9 +28,9 @@ var (
 	// mountpoint, size, used, avail, usage, inodes, inodes_used, inodes_avail, inodes_usage, type, filesystem
 	columns = []Column{
 		{ID: "mountpoint", Name: "Mounted on", SortIndex: 1},
-		{ID: "size", Name: "Size", SortIndex: 12, Width: 7},
-		{ID: "used", Name: "Used", SortIndex: 13, Width: 7},
-		{ID: "avail", Name: "Avail", SortIndex: 14, Width: 7},
+		{ID: "size", Name: "Size", SortIndex: 12, Width: 6},
+		{ID: "used", Name: "Used", SortIndex: 13, Width: 6},
+		{ID: "avail", Name: "Avail", SortIndex: 14, Width: 6},
 		{ID: "usage", Name: "Use%", SortIndex: 15, Width: 6},
 		{ID: "inodes", Name: "Inodes", SortIndex: 16, Width: 7},
 		{ID: "inodes_used", Name: "Used", SortIndex: 17, Width: 7},
@@ -229,7 +229,7 @@ func tableWidth(cols []int, separators bool) int {
 	twidth := int(*width)
 	for i := 0; i < len(columns); i++ {
 		if inColumns(cols, i+1) {
-			twidth -= 2 + sw + columns[i].Width
+			twidth -= sw + columns[i].Width
 		}
 	}
 
